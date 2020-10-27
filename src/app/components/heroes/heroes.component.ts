@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, OnInit } from '@angular/core'
+import { HeroesService, Heroe } from '../../services/heroes.service'
 
 @Component({
   selector: 'app-heroes',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./heroes.component.styl']
 })
 export class HeroesComponent implements OnInit {
-  constructor() {}
+  heroes: Heroe[] = []
 
-  ngOnInit(): void {}
+  constructor(private heroesServices: HeroesService) {}
+
+  ngOnInit() {
+    this.heroes = this.heroesServices.getHeroes()
+  }
 }
