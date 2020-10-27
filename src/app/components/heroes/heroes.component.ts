@@ -12,11 +12,11 @@ export class HeroesComponent implements OnInit {
 
   constructor(private heroesServices: HeroesService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.heroes = this.heroesServices.getHeroes()
   }
 
-  verHeroe(idx: number) {
+  verHeroe(idx: number): void {
     this.router.navigate(['/heroe', idx])
   }
 }

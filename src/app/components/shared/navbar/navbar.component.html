@@ -34,12 +34,18 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input
+        #searchtext
         class="form-control mr-sm-2"
         type="search"
-        placeholder="Search"
+        placeholder="Search hero"
         aria-label="Search"
+        (keyup.enter)="searchHero(searchtext.value)"
       />
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+      <button
+        (click)="searchHero(searchtext.value)"
+        class="btn btn-outline-danger my-2 my-sm-0"
+        type="button"
+      >
         Search
       </button>
     </form>
