@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Component, OnInit } from '@angular/core'
 import { HeroesService, Heroe } from '../../services/heroes.service'
 import { Router } from '@angular/router'

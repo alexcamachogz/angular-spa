@@ -1,1 +1,26 @@
-<p>heroe works!</p>
+<h1 class="animated fadeIn">
+  {{ heroe['nombre'] | uppercase }}
+  <small>({{ heroe['aparicion'] | date: 'y' }})</small>
+</h1>
+<hr />
+<div class="row animated fadeIn fast">
+  <div class="col-md-4">
+    <img [src]="heroe['img']" class="img-fluid" [alt]="heroe['img']" />
+    <br /><br />
+    <button (click)="goBack()" class="btn btn-outline-danger btn-block">
+      Return
+    </button>
+  </div>
+  <div class="col-md-8">
+    <h3>{{ heroe['nombre'] }}</h3>
+    <p>{{ heroe['bio'] }}</p>
+    <div>
+      <img *ngIf="heroe['casa'] == 'DC'" src="assets/images/dc.png" alt="DC" />
+      <img
+        *ngIf="heroe['casa'] == 'Marvel'"
+        src="assets/images/marvel.png"
+        alt="Marvel"
+      />
+    </div>
+  </div>
+</div>
