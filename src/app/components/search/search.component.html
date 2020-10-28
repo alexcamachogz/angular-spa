@@ -2,20 +2,19 @@
   Search of <small>{{ text }}</small>
 </h1>
 <hr />
-<div class="card-columns">
-  <div
-    class="card animated fadeIn fast"
-    *ngFor="let result of results; let i = index"
-  >
-    <img src="{{ result.img }}" class="card-img-top" [alt]="result.nombre" />
-    <div class="card-body">
-      <h5 class="card-title">{{ result.nombre }}</h5>
-      <p class="card-text">{{ result.bio }}</p>
-      <p class="card-text">
-        <small class="text-muted">{{ result.aparicion }}</small>
-      </p>
 
-      <button class="btn btn-outline-danger btn-block">See more</button>
+<div *ngIf="this.results.length === 0" class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <div class="alert alert-info" role="alert">
+      There are no results for your search: {{ text }}
     </div>
   </div>
+</div>
+
+<div class="card-columns">
+  <app-heroe-tarjeta
+    [heroe]="results"
+    [index]="i"
+    *ngFor="let results of results; let i = index"
+  ></app-heroe-tarjeta>
 </div>
