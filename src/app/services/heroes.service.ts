@@ -79,9 +79,11 @@ export class HeroesService {
     const heroesArr: Heroe[] = []
     text = text.toLowerCase()
 
-    for (const hero of this.heroes) {
+    for (let i = 0; i < this.heroes.length; i++) {
+      const hero = this.heroes[i]
       const name = hero.nombre.toLowerCase()
       if (name.indexOf(text) >= 0) {
+        hero.idx = i
         heroesArr.push(hero)
       }
     }
@@ -96,4 +98,5 @@ export interface Heroe {
   img: string
   aparicion: string
   casa: string
+  idx?: number
 }

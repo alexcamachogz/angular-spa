@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Router } from '@angular/router'
 
 @Component({
@@ -9,7 +9,11 @@ export class HeroeTarjetaComponent {
   @Input() heroe = {}
   @Input() index: number
 
-  constructor(private router: Router) {}
+  @Output() heroSelected: EventEmitter<number>
+
+  constructor(private router: Router) {
+    this.heroSelected = new EventEmitter()
+  }
 
   verHeroe(): void {
     this.router.navigate(['/heroe', this.index])
